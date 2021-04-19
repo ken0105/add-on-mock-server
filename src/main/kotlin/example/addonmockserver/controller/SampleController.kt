@@ -9,19 +9,14 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping
 class SampleController {
-    @GetMapping("/real")
-    fun real(): ResponseEntity<Message> {
-        return fixedResponse
-    }
+    @GetMapping("/users")
+    fun getUsers(): ResponseEntity<Users> {
+        return ResponseEntity(
+            Users(listOf("tanaka", "yamada", "iwata")),
+            HttpStatus.OK
+        )
 
-    @GetMapping("/mock")
-    fun mock(): ResponseEntity<Message> {
-        return fixedResponse
     }
 }
 
-val fixedResponse = ResponseEntity(
-        Message("This is a real response."),
-        HttpStatus.OK)
-
-data class Message(val message: String)
+data class Users(val users: List<String>)

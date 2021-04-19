@@ -13,7 +13,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 class ExceptionHandler : ResponseEntityExceptionHandler() {
 
     @ExceptionHandler
-    fun handle(e: Exception): ResponseEntity<Any>? {
+    fun handle(e: Exception): ResponseEntity<Any> {
         return if (e is NeedsMockResponseException) {
             buildMockResponse(e.mockInfo)
         } else {

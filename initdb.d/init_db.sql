@@ -7,4 +7,4 @@ create table mock_response(
 );
 
 insert into mock_response
-values('/mock', 200, '{"message": "This is a mock response."}');
+values('/users', 200, '{"users": ["mock"]}');
